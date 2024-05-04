@@ -4,11 +4,6 @@
 #define sharpIR A5
 SharpIR IR_proxy(sharpIR,1080);
 
-const int refVoltageResolution = 5/1023;
-
-const float voltages[] = {0.5, 1.0, 1.5, 2.0}; 
-const float distances[] = {10, 20, 30, 40};    
-
 // Motor A connections
 int enA = 10;
 int in1 = 8;
@@ -18,6 +13,7 @@ int enB = 3;
 int in3 = 5;
 int in4 = 4;
 
+// global speed variable
 int speed = 0;
 
 
@@ -141,14 +137,13 @@ void loop() {
 
   Bot.forw(); 
 
-  //Serial.println(Bot.distance());
-
-  while (Bot.distance() <= 20.0)
+  Serial.println(Bot.distance());
+//  while (Bot.distance() <= 10.0)
   {
-    Bot.cruise(speed = 250);
+  //  Bot.cruise(speed = 100);
   } 
   
-  Bot.cruise(speed = 127);
+ Bot.cruise(speed = 127);
   
 }
 
